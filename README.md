@@ -54,4 +54,34 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+
+#### Install Necessary Tools and Dependencies
+1. Clone this repo on your own machine
+1. Install Ruby by running this installer: https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.7.5-1/rubyinstaller-devkit-2.7.5-1-x64.exe
+
+1. Install Gems with below commands. Make sure you are in the project folder
+
+        gem install bundler
+        bundle install
+
+1. Install NodeJs and Yarn
+    1. Get the NodeJs installer here: https://nodejs.org/en/download/
+    1. After installing NodeJs, execute the below command in the command promt to install yarn
+
+            npm install --global yarn
+
+1. Install Webpacker
+
+        rails webpacker:install
+
+#### Setup Database
+Run these commands to create an sqlite3 database and populate it with the data from rushing.json.
+
+    rails db:setup
+    rails db:migrate
+    rails db:seed
+
+#### Run Application
+Finally the application can be run with this command
+
+    rails server

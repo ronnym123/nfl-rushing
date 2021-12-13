@@ -1,0 +1,46 @@
+<a class="csv" href="<%= players_path(format: :csv, sort: params[:sort]) %>">CSV Download</a>
+<h1>Players List</h1>
+<%= form_tag(players_path, method: :get) do %>
+    <p> Search for a player </p>
+    <%= text_field_tag(:search, params[:search]) %>
+    <%= submit_tag ("Search") %>
+<% end %>
+<br>
+<table class="players">
+  <tr class="table-header">
+    <th class="header-item">Name</th>
+    <th class="header-item">Team</th>
+    <th class="header-item">Position</th>    
+    <th class="header-item">Attempts</th>
+    <th class="header-item">Attempts Per Game Average</th>
+    <th class="header-item"><%= link_to("Total Yards", sort: "yards")%> </th>
+    <th class="header-item">Average Yards Per Attempt</th>
+    <th class="header-item">Yards Per Game</th>
+    <th class="header-item"><%= link_to("Total Touchdowns", sort: "touchdowns")%> </th>
+    <th class="header-item"><%= link_to("Longest Rush", sort: "lng")%> </th>   
+    <th class="header-item">First Downs</th>
+    <th class="header-item">First Down Percentage</th>
+    <th class="header-item">20+ Yards Each</th>
+    <th class="header-item">40+ Yards Each</th>
+    <th class="header-item">Fumbles</th>
+  </tr>
+<% @players.each do |player| %>
+  <tr class="table-row">
+    <td class="table-data"><%=player.name%></td>
+    <td class="table-data"><%=player.team%></td><td>
+    <td class="table-data"><%=player.position%></td><td>
+    <td class="table-data"><%=player.attempts%></td><td>
+    <td class="table-data"><%=player.attempts_per_game%></td><td>
+    <td class="table-data"><%=player.yards%></td>
+    <td class="table-data"><%=player.yards_per_attempt%></td><td>
+    <td class="table-data"><%=player.yards_per_game%></td><td>
+    <td class="table-data"><%=player.touchdowns%></td><td>
+    <td class="table-data"><%=player.longest_rush%></td><td>
+    <td class="table-data"><%=player.first_downs%></td><td>
+    <td class="table-data"><%=player.first_down_percentage%></td><td>
+    <td class="table-data"><%=player.twenty_yards%></td><td>
+    <td class="table-data"><%=player.forty_yards%></td><td>
+    <td class="table-data"><%=player.fumbles%></td><td>
+  </tr>
+<% end %>
+</table>
